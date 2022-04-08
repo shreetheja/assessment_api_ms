@@ -20,5 +20,5 @@ app.use((err, req, res, next) => {
   const resObj = Api500Error('Internal Error', `Error Occured For => ${err.toString()}`);
   res.status(500).send(resObj.toStringifiedJson());
 });
-
+console.log(process.env.PORT);
 app.listen(process.env.PORT, () => { logger.info(`Server is Up and Listening at ${process.env.PORT}👂🏻`); });

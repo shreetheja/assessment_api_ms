@@ -16,3 +16,14 @@ content-type: application/json
     "a_id":"1",
     "password":"dw"
 }
+############################### Login 
+POST https://assessmentApi.examvedha.com/user/login HTTP/1.1
+content-type: application/json
+
+{
+    "u_id":"4SF18CS144",
+    "a_id":"1",
+    "password":"dw"
+}
+###############################
+GET https://assessmentApi.examvedha.com
