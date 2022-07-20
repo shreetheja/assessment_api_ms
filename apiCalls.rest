@@ -1,19 +1,19 @@
 ############### Login Info
-GET http://localhost:3000/loginInfo/1/4SF18CS005 HTTP/1.1
+GET http://localhost:8080/loginInfo/4/4SF18CS144 HTTP/1.1
 
 ##################  Mark Answer 
-GET http://localhost:3000/markAnswer/1/4SF18CS14?q=3&a=2 HTTP/1.1
+GET http://localhost:8080/markAnswer/4/4SF18CS144?q=5&a=-1 HTTP/1.1
 
 ############ Submit 
-GET http://localhost:3000/submit/1/4SF18CS1 HTTP/1.1
+GET http://localhost:8080/submit/4/4SF18CS144 HTTP/1.1
 
 ############################### Login 
-POST http://localhost:3000/user/login HTTP/1.1
+POST http://localhost:8080/user/login HTTP/1.1
 content-type: application/json
 
 {
     "u_id":"4SF18CS144",
-    "a_id":"1",
+    "a_id":"4",
     "password":"dw"
 }
 ############################### Login 
@@ -22,7 +22,7 @@ content-type: application/json
 
 {
     "u_id":"4SF18CS144",
-    "a_id":"1",
+    "a_id":"4",
     "password":"dw"
 }
 ###############################

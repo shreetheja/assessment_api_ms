@@ -12,6 +12,7 @@
   "dependencies": {
     "app-root-path": "^3.0.0",
     "async": "^3.2.3",
+    "aws-sdk": "^2.1178.0",
     "axios": "^0.26.1",
     "body-parser": "^1.19.1",
     "colors": "^1.4.0",

@@ -5,6 +5,7 @@ const {
 } = require('../../handlers/apiErrors');
 const db = require('../../database/query');
 const log = require('../../log/index');
+const awsSQS = require('../../aws/AnswersSqs');
 
 const logger = log.getNormalLogger();
 class Controller {
@@ -226,6 +227,12 @@ class Controller {
     if (insertAnswerQuery.error) {
       Controller.sendApi500(res, insertAnswerQuery.error);
       return;
+    }
+    const submitWorkerInfo = await db.getUserDataFromAssessment_meta(aId,uId);
+    if(submitWorkerInfo.error){
+      logger.error(`Error At Submit WeorkerInfo : ${submitWorkerInfo.error}`);
+    }else{
+      awsSQS.pushMessage(submitWorkerInfo.rows[0],`${aId}:${uId}`);
     }
     const respObj = new Api200Success('submit success', 'submit inserted');
     res.status(200).send(respObj.toStringifiedJson());
